@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-19T07:46:32.940Z",
+  "publisher": "did:web:writerslogic.com",
+  "operator": "https://orcid.org/0009-0003-1849-2963",
+  "ark": {
+    "naan": "56439",
+    "policy": "https://writerslogic.com/ark-policy"
+  },
+  "cidFormat": "CIDv1 raw blocks; computed byte addresses, not evidence of IPFS availability or pinning",
+  "files": [
+    {
+      "path": "/.well-known/c2pa-fonts/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-fonts/index.json",
+      "bytes": 239,
+      "sha256": "68bfea8b25f409a797ad44216bc9f7b3a1b2ec986e72694f92eb7b49dbcb7c88",
+      "cid": "bafkreidix7viwjpubgtzplkeefv4t55tugzozgdoojuu7exlpne5xs34ra",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-html/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-html/index.json",
+      "bytes": 258,
+      "sha256": "96e201edf477df3336891510bfb36eb690f0ecf749d1326928f3b0a3c7a5e852",
+      "cid": "bafkreiew4ia635dx34ztncivcc73g3vwsdyoz52j2ezgskhtwcr4pjpiki",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-http/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-http/index.json",
+      "bytes": 253,
+      "sha256": "b2e234ff943a953cae1bc47f85f2e9379f521ca72705f8fa1ecdd54388691069",
+      "cid": "bafkreifs4i2p7fb2su6k4g6ep6c7f2jxt5jbzjzhax4puhwn2vbyq2iqne",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-ml/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-ml/index.json",
+      "bytes": 249,
+      "sha256": "dffdd290150a862232572dfbbf43f630a645635e89101448f93839aea9521b9d",
+      "cid": "bafkreig77xjjafikqyrdevzn7o7uh5rquzcwgxujcaker6jyhgxksuq3tu",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-structured-text/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-structured-text/index.json",
+      "bytes": 304,
+      "sha256": "40e773507f087effd1d0cf44da549e884f93c3d77e749e20889ee1cb64394998",
+      "cid": "bafkreica45zva7yip375dugpitnfjhuij6j4hv36ospcbce64hfwiokjta",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-text-binding/aggregator.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-text-binding/aggregator.json",
+      "bytes": 6081,
+      "sha256": "9f510e2ae9ae793bda02ea2758ded71ac696c68192f42a234a3debe93bae431e",
+      "cid": "bafkreie7kehcv2nope55uaxke5mn5vy2y2lmnams6qvcgsr55putxlsddy",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-text-binding/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-text-binding/index.json",
+      "bytes": 1429,
+      "sha256": "f7610fe7f0f06cac9321deecac98006b174d4dfc79f0aa385f122383eeea25af",
+      "cid": "bafkreihxmeh6p4hqnswjgio65swjqadlc5gu37dz6cvdqxyseob652rfv4",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-text-binding/manifests/11636a3d7616f405fd0221bb42f13e9befbabf1ba160a2612835cd0232cf9d84.c2pa",
+      "source": "https://writerslogic.com/.well-known/c2pa-text-binding/manifests/11636a3d7616f405fd0221bb42f13e9befbabf1ba160a2612835cd0232cf9d84.c2pa",
+      "bytes": 7416,
+      "sha256": "ecb41d10e8da4580fa0353d62b9302c3925ae87702a0ff3fac97000a42848b2b",
+      "cid": "bafkreihmwqorb2g2iwapua2t2yvzgawdsjnoq5ycud7t7lexaafefbelfm",
+      "contentType": "application/octet-stream"
+    },
+    {
+      "path": "/.well-known/c2pa-text/aggregator.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-text/aggregator.json",
+      "bytes": 6081,
+      "sha256": "9f510e2ae9ae793bda02ea2758ded71ac696c68192f42a234a3debe93bae431e",
+      "cid": "bafkreie7kehcv2nope55uaxke5mn5vy2y2lmnams6qvcgsr55putxlsddy",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-text/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-text/index.json",
+      "bytes": 1429,
+      "sha256": "f7610fe7f0f06cac9321deecac98006b174d4dfc79f0aa385f122383eeea25af",
+      "cid": "bafkreihxmeh6p4hqnswjgio65swjqadlc5gu37dz6cvdqxyseob652rfv4",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-text/manifests/11636a3d7616f405fd0221bb42f13e9befbabf1ba160a2612835cd0232cf9d84.c2pa",
+      "source": "https://writerslogic.com/.well-known/c2pa-text/manifests/11636a3d7616f405fd0221bb42f13e9befbabf1ba160a2612835cd0232cf9d84.c2pa",
+      "bytes": 7416,
+      "sha256": "ecb41d10e8da4580fa0353d62b9302c3925ae87702a0ff3fac97000a42848b2b",
+      "cid": "bafkreihmwqorb2g2iwapua2t2yvzgawdsjnoq5ycud7t7lexaafefbelfm",
+      "contentType": "application/octet-stream"
+    },
+    {
+      "path": "/.well-known/c2pa-unstructured-text/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-unstructured-text/index.json",
+      "bytes": 303,
+      "sha256": "c7722522311a8cc4feed3a24b0a43f9a48d85cb87403d791c5e9ac3e84f3d583",
+      "cid": "bafkreighoissemi2rtcp53j2esykip42jdmfzoduaplzdrpjvq7ij46vqm",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-vtt/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-vtt/index.json",
+      "bytes": 240,
+      "sha256": "1f28826fd2e2f017c566e0961d21869fc2f880083b1aa2da1ced21e5a3303f75",
+      "cid": "bafkreia7fcbg7uxc6al4kzxasyosdbu7yl4iacb3dkrnuhhnehs2gmb7ou",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-warc/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-warc/index.json",
+      "bytes": 247,
+      "sha256": "199204006bd1c5916f2a27098548f51aaca4d66c165363ef95089c0e289b47ec",
+      "cid": "bafkreiazsicaa26rywiw6krhbgcur5i2vssnm3awknr67fiitqhcrg2h5q",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa-zip/index.json",
+      "source": "https://writerslogic.com/.well-known/c2pa-zip/index.json",
+      "bytes": 241,
+      "sha256": "b6ea72cbc9fc9374666c6e18dabca52c54325f42be7692d43945b462228548d8",
+      "cid": "bafkreifw5jzmxsp4sn2gm3doddnlzjjmkqzf6qv6o2jniokfwrrcfbki3a",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/c2pa/cps.pdf",
+      "source": "https://writerslogic.com/.well-known/c2pa/cps.pdf",
+      "bytes": 106480,
+      "sha256": "e78adf7a222c37ed02fd25cdbb204507c2634cf89f962452caf9ef9726dc82b0",
+      "cid": "bafkreihhrlpxuirmg7wqf7jfzw5sarihyjruz6e7sysffsxz56lsnxecwa",
+      "contentType": "application/pdf"
+    },
+    {
+      "path": "/.well-known/c2pa/crl/issuing.crl",
+      "source": "https://writerslogic.com/.well-known/c2pa/crl/issuing.crl",
+      "bytes": 377,
+      "sha256": "5452de923ae5a6975f9e3719fe5b428d53ad350e4e841fde4f6f94d7041f58e5",
+      "cid": "bafkreicuklpjeoxfu2lv7hrxdh7fwqunkowtkdsoqqp54t3pstlqih2y4u",
+      "contentType": "application/pkix-crl"
+    },
+    {
+      "path": "/.well-known/c2pa/issuing-ca.crt",
+      "source": "https://writerslogic.com/.well-known/c2pa/issuing-ca.crt",
+      "bytes": 1143,
+      "sha256": "d49bfc9f5686f44fb90087892f1c5089e8a36eaddb23645f9840eae77cfa561f",
+      "cid": "bafkreigutp6j6vug6rh3saehrexryuej5crw5lo3ensf7gca5ltxz6swd4",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "/.well-known/c2pa/root-ca.crt",
+      "source": "https://writerslogic.com/.well-known/c2pa/root-ca.crt",
+      "bytes": 1013,
+      "sha256": "6757b95f20da0e87a9f58b705d1a9ac76f6f281e4e5e8d2f7adf0c6abe51f3c8",
+      "cid": "bafkreidhk64v6ig2b2d2t5mloborvgwhn5xsqhsol2gs66w7brvl4uptza",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "/.well-known/company.json",
+      "source": "https://writerslogic.com/.well-known/company.json",
+      "bytes": 3786,
+      "sha256": "dc3fe9f2bc17add6e055e959846324a61f305082d0b8cce97e43f2eb856f5ef5",
+      "cid": "bafkreig4h7u7fpaxvxloavpjlgcggjfgd4yfbawqxdgos7sd6lvyk3266u",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/cpoe-profile-1.0.json",
+      "source": "https://writerslogic.com/.well-known/cpoe-profile-1.0.json",
+      "bytes": 1234,
+      "sha256": "b0d16d881757b5c8ada23f985be9c92ac365fc374c8610779c1bbd5f6970a4bb",
+      "cid": "bafkreifq2fwyqf2xwxek3ir7tbn6tsjkyns7yn2mqyihpha3xvpws4fexm",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/did.json",
+      "source": "https://writerslogic.com/.well-known/did.json",
+      "bytes": 5766,
+      "sha256": "2c0ef7a1d192b92a0b1868d4922c13de6be7198a23032a2446ec85446890d874",
+      "cid": "bafkreibmb332dumsxevawgdi2sjcye66nptrtcrdamvcirxmqvcgregyoq",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/jwks.json",
+      "source": "https://writerslogic.com/.well-known/jwks.json",
+      "bytes": 4333,
+      "sha256": "1d6961418ffe89045af94f2d4ebb6827438448bd45b26c80290da5c41e500130",
+      "cid": "bafkreia5nfqudd76recfv6kpfvhlw2bhiocerpkfwjwiakinuxcb4uabga",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/microsoft-identity-association.json",
+      "source": "https://writerslogic.com/.well-known/microsoft-identity-association.json",
+      "bytes": 112,
+      "sha256": "842db2453dd632892a2298d642ed4283bf1939a508f321a8436d2c450433222e",
+      "cid": "bafkreieefwzekpowgkesuiuy2zbo2qudx4mttjii6mq2qq3nfrcqimzcfy",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/pop-policy-academic-1.0.json",
+      "source": "https://writerslogic.com/.well-known/pop-policy-academic-1.0.json",
+      "bytes": 881,
+      "sha256": "10a2633bca8f42e7148ddfb2a725834dc37b6892f2f3a67d880e747c6d7bbc34",
+      "cid": "bafkreiaqujrtxsupiltrjdo7wktsla2nyn5wrexs6oth3caoor6g2654gq",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/pop-policy-basic-1.0.json",
+      "source": "https://writerslogic.com/.well-known/pop-policy-basic-1.0.json",
+      "bytes": 1047,
+      "sha256": "e315cafd123ce497d7c06297b0d728245a6ea623492c5f862b7059ddc90bf72d",
+      "cid": "bafkreihdcxfp2er44sl5pqdcs6ynokbeljxkmi2jfrpymk3qlho4sc7xfu",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/pop-policy-legal-1.0.json",
+      "source": "https://writerslogic.com/.well-known/pop-policy-legal-1.0.json",
+      "bytes": 901,
+      "sha256": "67b5faae6c312ad3e150199fedd131f9ae31aba4961d60dedaec013cc9f2c98b",
+      "cid": "bafkreidhwx5k43brflj6cuazt7w5cmpzvyy2xjewdvqn5wxmae6mt4wjrm",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/rats-ear-profile-cpoe-1.0.json",
+      "source": "https://writerslogic.com/.well-known/rats-ear-profile-cpoe-1.0.json",
+      "bytes": 952,
+      "sha256": "a0757eff094ad9ea055776ad62bc0258303f839451e02d746e8686ac925f5549",
+      "cid": "bafkreifaov7p6ckk3hvakv3wvvrlyasyga7yhfcr4awxi3ugq2wjex2vje",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/rats-eat-profile-key-binding-0.1.json",
+      "source": "https://writerslogic.com/.well-known/rats-eat-profile-key-binding-0.1.json",
+      "bytes": 939,
+      "sha256": "37fed891fec348fc20c240de0c3b1cb233eab084319cb21611b8ac101681d2b1",
+      "cid": "bafkreibx73mjd7wdjd6cbqsa3ygdwhfsgpvlbbbrtszbmenyvqibnaoswe",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/rats-eat-profile-pop-1.0.json",
+      "source": "https://writerslogic.com/.well-known/rats-eat-profile-pop-1.0.json",
+      "bytes": 934,
+      "sha256": "320fbd88430507a97879f9529febe433057e52bd48df7745ee8a3f0e6ab25657",
+      "cid": "bafkreibsb66yqqyfa6uxq6pzkkp6xzbtav7ffpki353ul3ukh4hgvmswk4",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/rats-eat-profile-pop-key-1.0.json",
+      "source": "https://writerslogic.com/.well-known/rats-eat-profile-pop-key-1.0.json",
+      "bytes": 970,
+      "sha256": "600a15cdfbd08ef5550709872234af66a134f67231f19f8cadf95cf6c960ec90",
+      "cid": "bafkreidabik4366qr32vkbyjq4rdjl3gue2pm4rr6gpyzlpzlt3msyhmsa",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/rats-eat-profile-pop-platform-binding-1.0.json",
+      "source": "https://writerslogic.com/.well-known/rats-eat-profile-pop-platform-binding-1.0.json",
+      "bytes": 1403,
+      "sha256": "b0b10144a42a31f474fecdcaee7ffbb440d69d36ff2cba1b03cebad0b4630627",
+      "cid": "bafkreifqweaujjbkgh2hj7wnzlxh765uidlj2nx7fs5bwa6oxliliyyge4",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/rats-eat-profile-pop-windows-binding-1.0.json",
+      "source": "https://writerslogic.com/.well-known/rats-eat-profile-pop-windows-binding-1.0.json",
+      "bytes": 1609,
+      "sha256": "3557fbf743b545e82dc563803354464f28a1915c40def9a5aaccd813b3edd3c1",
+      "cid": "bafkreibvk757oq5vixuc3rldqazvirspfcqzcxca3342lkwm3aj3h3otye",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/.well-known/security.txt",
+      "source": "https://writerslogic.com/.well-known/security.txt",
+      "bytes": 161,
+      "sha256": "4d91c1b25167c53872c869aa34e2308028c52bdfe32f81037432c29323713f1e",
+      "cid": "bafkreicnsha3eulhyu4hfsdjvi2oemeafdcsxx7df6aqg5bsykjsg4j7dy",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "/executives/dcondrey/did.json",
+      "source": "https://writerslogic.com/executives/dcondrey/did.json",
+      "bytes": 767,
+      "sha256": "e5f0f14b04fc09120c8689a4a25bcde9fe7bb046e869481db35fec862ff594c6",
+      "cid": "bafkreihf6dyuwbh4bejazbujusrfxtpj7z53arxinfeb3m275sdc75muyy",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/llms-full.txt",
+      "source": "https://writerslogic.com/llms-full.txt",
+      "bytes": 19756,
+      "sha256": "cb38199f764c1deb29d293cb97c310ae6b01140b5c70d9f56cd74b6955bebbc0",
+      "cid": "bafkreiglhamz65smdxvstuutzol4gefonmaric24odm7k3gxjnuvlpv3ya",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "/llms.txt",
+      "source": "https://writerslogic.com/llms.txt",
+      "bytes": 11798,
+      "sha256": "5d3bd90ed459095b2c37ecd858bb112845659343764389847c67b37ef0fe4a30",
+      "cid": "bafkreic5hpmq5vczbfnsyn7m3bmlwejiivszgq3wioeyi7dhwn7pb7skga",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "/manifest.webmanifest",
+      "source": "https://writerslogic.com/manifest.webmanifest",
+      "bytes": 1562,
+      "sha256": "092bc53010d027142eb77d440bc7fd2f767269ecc73f088f86b2ac88bbcec461",
+      "cid": "bafkreiajfpctaegqe4kc5n35iqf4p7jpozzgt3ghh4ei7bvsvselxtweme",
+      "contentType": "application/manifest+json"
+    },
+    {
+      "path": "/ns/v1/context.jsonld",
+      "source": "https://writerslogic.com/ns/v1/context.jsonld",
+      "bytes": 25542,
+      "sha256": "f7f2a5b30ecae30a183349f23e31af23ae545d5435e145b561ee8bc92acc5cd7",
+      "cid": "bafkreihx6ks3gdwk4mfbqm2j6i7ddlzdvzkf2vbv4fc3kyporpesvtc424",
+      "contentType": "application/ld+json; charset=utf-8"
+    },
+    {
+      "path": "/ns/v1/schemas/cognitive-markers.schema.json",
+      "source": "https://writerslogic.com/ns/v1/schemas/cognitive-markers.schema.json",
+      "bytes": 9210,
+      "sha256": "dea9e5de1f5e0621f03d3b53c51119e2f9550cd58fba9a57feb7dd91f45a7668",
+      "cid": "bafkreig6vhs54h26ayq7apj3kpcrcgpc7fkqzvmpxknfp7vx3wi7iwtwna",
+      "contentType": "application/schema+json; charset=utf-8"
+    },
+    {
+      "path": "/ns/v1/schemas/evidence-chain.schema.json",
+      "source": "https://writerslogic.com/ns/v1/schemas/evidence-chain.schema.json",
+      "bytes": 2307,
+      "sha256": "07e1a87a82ac4d7b32021b34848b20300ca3b0bd9515f1c7691d03764ec760aa",
+      "cid": "bafkreiah4guhvavmjv5teaq3gsciwibqbsr3bpmvcxy4o2i5an3e5r3avi",
+      "contentType": "application/schema+json; charset=utf-8"
+    },
+    {
+      "path": "/ns/v1/schemas/evidence-packet.cddl",
+      "source": "https://writerslogic.com/ns/v1/schemas/evidence-packet.cddl",
+      "bytes": 14744,
+      "sha256": "abf5923946111ed913d242ee46fcd7c051edffea7cde5970cadecee9e229956d",
+      "cid": "bafkreifl6wjdsrqrd3mrhusc5zdpzv6akhw772t43zmxbsw6z3u6ekmvnu",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "/ns/v1/schemas/keystroke-cadence.schema.json",
+      "source": "https://writerslogic.com/ns/v1/schemas/keystroke-cadence.schema.json",
+      "bytes": 5133,
+      "sha256": "7ea57844682fdb7b2a0bbe55e9e9e77bfbba20f1425aa93bffb6caf6da29e596",
+      "cid": "bafkreid6uv4ei2bp3n5suc56kxu6tz337o5cb4kclkutx75wzl3nukpfsy",
+      "contentType": "application/schema+json; charset=utf-8"
+    },
+    {
+      "path": "/ns/v1/schemas/process-proof.schema.json",
+      "source": "https://writerslogic.com/ns/v1/schemas/process-proof.schema.json",
+      "bytes": 4467,
+      "sha256": "ea2440538f20e2d2bac7be746cedb560116f523b5947fe57a94d2f1db4106372",
+      "cid": "bafkreihkerafhdza4ljlvr56orwo3nlacfxveo2zi77fpkknf4o3ieddoi",
+      "contentType": "application/schema+json; charset=utf-8"
+    },
+    {
+      "path": "/ns/v1/schemas/verifiable-credential.schema.json",
+      "source": "https://writerslogic.com/ns/v1/schemas/verifiable-credential.schema.json",
+      "bytes": 2535,
+      "sha256": "6b6ec9b523769f4aa74e21d52a25ed99bf26ef298cad4ee8e56a1d7c117da3c0",
+      "cid": "bafkreidln3e3ki3wt5fkotrb2uvcl3mzx4to6kmmvvhorzlkdv6bc7ndya",
+      "contentType": "application/schema+json; charset=utf-8"
+    },
+    {
+      "path": "/ns/v1/soft-binding-registrations.json",
+      "source": "https://writerslogic.com/ns/v1/soft-binding-registrations.json",
+      "bytes": 3499,
+      "sha256": "30e043a94da2818856711e9d0fb20013e098098fd3f2c155733ddb5bebe59b8f",
+      "cid": "bafkreibq4bb2stncqgefm4i6tuh3eaat4cmatd6t6lavk4z53nn6xzm3r4",
+      "contentType": "application/json"
+    },
+    {
+      "path": "/robots.txt",
+      "source": "https://writerslogic.com/robots.txt",
+      "bytes": 3113,
+      "sha256": "8f86906d6447fe94e0b30a0c1e021753e5d02b2f65e9c77395a66979cd500195",
+      "cid": "bafkreiepq2ig2zch72kobmykbqpaef2t4xicwl3f5hdxhfngnf442uabsu",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "/schemas/evidence-bundle.schema.json",
+      "source": "https://writerslogic.com/schemas/evidence-bundle.schema.json",
+      "bytes": 18513,
+      "sha256": "79607e046068bf4e95d04ca9178497a87e51ad9d4ad0cd8983da119d687c5954",
+      "cid": "bafkreidzmb7aiydix5hjlucmvelyjf5ipzi23hkk2dgyta62cgowq7czkq",
+      "contentType": "application/schema+json; charset=utf-8"
+    }
+  ]
+}

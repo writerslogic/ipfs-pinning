@@ -1,0 +1,7 @@
+{
+  "name": "c2pa-ml",
+  "controller": "did:web:writerslogic.com",
+  "service": "did:web:writerslogic.com#c2pa-ml",
+  "repository": "https://github.com/writerslogic/c2pa-ml",
+  "description": "Machine-learning text telemetry and watermark tooling"
+}

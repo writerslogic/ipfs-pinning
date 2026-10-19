@@ -1,0 +1,93 @@
+{
+  "_note": "WritersLogic entries in the C2PA Soft Binding Algorithm List (github.com/c2pa-org/softbinding-algorithm-list). Six are registered and carry assigned identifiers; the semantic fingerprint is still held pending publication of cross-platform int8 test vectors proving reproducibility, so it has no identifier. All WritersLogic informationalUrls follow https://docs.writerslogic.com/soft-binding/<slug>. Authoritative descriptions live in the upstream list; this file mirrors registration state. Verified against the upstream list on 2026-08-25 (53 entries total).",
+  "registered": [
+    {
+      "identifier": 29,
+      "alg": "com.writerslogic.zwc-watermark.1",
+      "type": "watermark",
+      "encodedMediaTypes": [
+        "text/plain",
+        "text/markdown",
+        "text/html"
+      ],
+      "dateEntered": "2026-03-18T20:00:00.000Z",
+      "informationalUrl": "https://docs.writerslogic.com/soft-binding/zwc-watermark"
+    },
+    {
+      "identifier": 41,
+      "alg": "com.writerslogic.text-fingerprint.1",
+      "type": "fingerprint",
+      "encodedMediaTypes": [
+        "text/plain",
+        "text/markdown",
+        "text/html"
+      ],
+      "dateEntered": "2026-06-22T00:00:00.000Z",
+      "informationalUrl": "https://docs.writerslogic.com/soft-binding/text-fingerprint"
+    },
+    {
+      "identifier": 42,
+      "alg": "com.writerslogic.zwc-watermark.2",
+      "type": "watermark",
+      "encodedMediaTypes": [
+        "text/plain",
+        "text/markdown",
+        "text/html"
+      ],
+      "dateEntered": "2026-07-07T00:00:00.000Z",
+      "informationalUrl": "https://docs.writerslogic.com/soft-binding/zwc-watermark-v2"
+    },
+    {
+      "identifier": 43,
+      "alg": "com.writerslogic.text-structure.1",
+      "type": "fingerprint",
+      "encodedMediaTypes": [
+        "text/plain",
+        "text/markdown",
+        "text/html"
+      ],
+      "dateEntered": "2026-07-07T00:00:00.000Z",
+      "informationalUrl": "https://docs.writerslogic.com/soft-binding/text-structure"
+    },
+    {
+      "identifier": 44,
+      "alg": "com.writerslogic.text-minhash.1",
+      "type": "fingerprint",
+      "encodedMediaTypes": [
+        "text/plain",
+        "text/markdown",
+        "text/html"
+      ],
+      "dateEntered": "2026-07-07T00:00:00.000Z",
+      "informationalUrl": "https://docs.writerslogic.com/soft-binding/text-minhash"
+    },
+    {
+      "identifier": 47,
+      "alg": "com.writerslogic.text-watermark-semantic.1",
+      "type": "watermark",
+      "encodedMediaTypes": [
+        "text/plain",
+        "text/markdown",
+        "text/html"
+      ],
+      "dateEntered": "2026-07-28T00:00:00.000Z",
+      "informationalUrl": "https://docs.writerslogic.com/soft-binding/text-watermark-semantic"
+    }
+  ],
+  "heldPendingTestVectors": [
+    {
+      "alg": "com.writerslogic.text-semantic.1",
+      "type": "fingerprint",
+      "encodedMediaTypes": [
+        "text/plain",
+        "text/markdown",
+        "text/html"
+      ],
+      "entryMetadata": {
+        "description": "Paraphrase/translation-robust 256-bit semantic fingerprint via pinned open embedding under fixed int8 inference and seeded random-hyperplane LSH. Value specified by pinned weights-hash, tokenizer, pooling, quantization, and projection seed with published cross-platform test vectors. Corroborating evidence, not a sole identifier.",
+        "contact": "david@writerslogic.com",
+        "informationalUrl": "https://docs.writerslogic.com/soft-binding/text-semantic"
+      }
+    }
+  ]
+}

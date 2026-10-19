@@ -1,0 +1,32 @@
+{
+  "profile": "https://writerslogic.com/.well-known/cpoe-profile-1.0.json",
+  "name": "CPoE Evidence Packet Profile",
+  "version": "1.0",
+  "description": "Verification requirements for a CPoE (Cryptographic Proof of Effort) evidence packet, as referenced by the `profile_uri` field (CDDL key 2) of an EvidencePacketWire.",
+  "wireFormat": "CBOR (RFC 8949), COSE_Sign1 (RFC 9052)",
+  "specification": "https://github.com/writerslogic/writersproof",
+  "algorithms": {
+    "primary": [
+      "EdDSA (Ed25519)",
+      "ES256 (P-256)"
+    ],
+    "countersignature": {
+      "mechanism": "RFC 9338 COSE countersignature",
+      "algorithm": "ML-DSA-44 (RFC 9964, COSE alg -48)",
+      "required": false
+    },
+    "timestampBinding": {
+      "mechanism": "RFC 9921 COSE header parameter for RFC 3161 timestamp tokens",
+      "headers": {
+        "269": "3161-ttc (protected)",
+        "270": "3161-ctt (unprotected)"
+      },
+      "required": false
+    }
+  },
+  "supersedes": [
+    "urn:ietf:params:cpoe:profile:1.0",
+    "urn:ietf:params:pop:profile:1.0"
+  ],
+  "notes": "Published under this domain because urn:ietf:params: is IANA-controlled and this profile was never IETF-WG-adopted; a dereferenceable URI needs no registration."
+}

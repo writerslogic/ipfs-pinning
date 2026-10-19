@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://writerslogic.com/ns/v1/schemas/cognitive-markers.schema.json",
+  "title": "WritersProof Cognitive Markers Assertion",
+  "description": "C2PA custom assertion containing deep behavioral analysis across 5 forensic dimensions. Label: com.writerslogic.cognitive-markers",
+  "type": "object",
+  "required": ["version"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "cognitiveLoad": {
+      "type": ["object", "null"],
+      "description": "IKI-surprisal entanglement analysis: correlation between keystroke timing and linguistic complexity",
+      "properties": {
+        "ikiSurprisalRho": {
+          "type": "number",
+          "description": "Spearman rho between IKI and word surprisal. Cognitive 0.3-0.6, transcriptive ~0"
+        },
+        "sentenceArcRSquared": {
+          "type": "number",
+          "description": "Quadratic fit R-squared to per-sentence velocity. Cognitive >0.3"
+        },
+        "structuralPauseConcentration": {
+          "type": "number",
+          "description": "Gaussian proximity of deep pauses to sentence/paragraph boundaries. Cognitive >0.6"
+        },
+        "compositeScore": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "deepPauseCount": {
+          "type": "integer",
+          "description": "Pauses exceeding 3 seconds"
+        },
+        "boundaryCount": {
+          "type": "integer",
+          "description": "Sentence/paragraph boundaries detected"
+        },
+        "wordCount": {
+          "type": "integer"
+        }
+      },
+      "required": ["ikiSurprisalRho", "sentenceArcRSquared", "structuralPauseConcentration", "compositeScore"]
+    },
+    "revisionTopology": {
+      "type": ["object", "null"],
+      "description": "DAG structure analysis of edit positions and revision classification",
+      "properties": {
+        "meanBranchingFactor": {
+          "type": "number",
+          "description": "Unique edit targets per source position. Cognitive >2, transcriptive ~1"
+        },
+        "meanRevisitDepth": {
+          "type": "number",
+          "description": "Edit count per active region. Cognitive 2-4"
+        },
+        "meanFrontierDistance": {
+          "type": "number",
+          "description": "Fraction behind max cursor. Cognitive 0.3-0.6, transcriptive <0.05"
+        },
+        "activeRegionCount": {
+          "type": "integer",
+          "description": "Document regions receiving edits (20 position bins)"
+        },
+        "detourRatio": {
+          "type": "number",
+          "description": "Non-sequential cursor jumps / total chars. Transcription ~0, composition 0.3-1.5+"
+        },
+        "leadingEdgeDivergence": {
+          "type": "number",
+          "description": "Fraction of edits behind frontier. Transcription ~0%, composition 15-40%"
+        },
+        "insertionPointEntropy": {
+          "type": "number",
+          "description": "Shannon entropy of behind-edge insertions. Transcription <1.5, composition 2.5-4.0"
+        },
+        "revisionTypes": {
+          "type": "object",
+          "properties": {
+            "subWordMotorPct": {
+              "type": "number",
+              "description": "1-3 char delete within 800ms (motor errors)"
+            },
+            "wordSubstitutionPct": {
+              "type": "number",
+              "description": "Word-level lexical substitution within 2s"
+            },
+            "clauseRestructuringPct": {
+              "type": "number",
+              "description": ">10 char delete + >1s pause + retype (structural revision)"
+            },
+            "positionalInsertionPct": {
+              "type": "number",
+              "description": "Insertions at positions behind the frontier"
+            },
+            "totalRevisions": {
+              "type": "integer"
+            }
+          }
+        },
+        "compositeScore": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      },
+      "required": ["detourRatio", "leadingEdgeDivergence", "insertionPointEntropy", "compositeScore"]
+    },
+    "errorEcology": {
+      "type": ["object", "null"],
+      "description": "Distribution of error types -- motor errors (cognitive) vs. visual/bulk errors (transcriptive)",
+      "properties": {
+        "rapidSelfCorrectionPct": {
+          "type": "number",
+          "description": "Delete 1-3 chars within 500ms. Cognitive reference: 0.35"
+        },
+        "immediateSmallCorrectionPct": {
+          "type": "number",
+          "description": "Delete 1-3 chars within 1s. Cognitive reference: 0.30"
+        },
+        "delayedCorrectionPct": {
+          "type": "number",
+          "description": "Delete after >2s delay. Transcriptive reference: 0.35"
+        },
+        "bulkCorrectionPct": {
+          "type": "number",
+          "description": "Delete 5+ consecutive chars. Transcriptive reference: 0.30"
+        },
+        "falseStartPct": {
+          "type": "number",
+          "description": "Type 2-4 chars rapidly then delete and retype. Cognitive reference: 0.20"
+        },
+        "totalCorrections": {
+          "type": "integer"
+        },
+        "correctionRate": {
+          "type": "number",
+          "description": "Corrections / total keystrokes"
+        },
+        "jsdFromCognitive": {
+          "type": "number",
+          "description": "Jensen-Shannon divergence from cognitive reference distribution. Lower = more cognitive"
+        },
+        "jsdFromTranscriptive": {
+          "type": "number",
+          "description": "Jensen-Shannon divergence from transcriptive reference. Lower = more transcriptive"
+        },
+        "compositeScore": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      },
+      "required": ["jsdFromCognitive", "jsdFromTranscriptive", "compositeScore"]
+    },
+    "likelihoodModel": {
+      "type": ["object", "null"],
+      "description": "Per-window Bayesian classification using windowed log-likelihood ratios",
+      "properties": {
+        "sessionLlr": {
+          "type": "number",
+          "description": "Sum of per-window log-likelihood ratios. Positive = cognitive"
+        },
+        "sessionPCognitive": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Sigmoid(mean LLR) posterior probability"
+        },
+        "windowCount": {
+          "type": "integer",
+          "description": "Number of 200-sample sliding windows analyzed"
+        },
+        "cognitiveWindowCount": {
+          "type": "integer",
+          "description": "Windows with LLR > 0"
+        },
+        "transcriptiveWindowCount": {
+          "type": "integer",
+          "description": "Windows with LLR < 0"
+        },
+        "meanWindowLlr": {
+          "type": "number"
+        },
+        "llrStdDev": {
+          "type": "number",
+          "description": "Std dev of window LLRs. Higher = mixed session"
+        },
+        "compositeScore": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      },
+      "required": ["sessionPCognitive", "windowCount", "compositeScore"]
+    },
+    "focus": {
+      "type": ["object", "null"],
+      "description": "Window focus-switching patterns during authoring",
+      "properties": {
+        "switchCount": {
+          "type": "integer",
+          "description": "Total window focus transitions"
+        },
+        "outOfFocusRatio": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Fraction of editing time with document unfocused"
+        },
+        "aiAppSwitchCount": {
+          "type": "integer",
+          "description": "Switches to known AI/browser applications"
+        },
+        "midTypingSwitchRatio": {
+          "type": "number",
+          "description": "Switches within 2s of a keystroke. Cognitive >0.5"
+        }
+      }
+    },
+    "editMetrics": {
+      "type": ["object", "null"],
+      "description": "Edit position distribution and entropy measures",
+      "properties": {
+        "monotonicAppendRatio": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Fraction of edits at >95% position. High = append-only (suspicious)"
+        },
+        "editEntropy": {
+          "type": "number",
+          "description": "Shannon entropy of 20-bin edit position histogram"
+        },
+        "timingEntropy": {
+          "type": "number",
+          "description": "Shannon entropy of inter-keystroke intervals. Threshold: 3.0 bits"
+        },
+        "pauseEntropy": {
+          "type": "number",
+          "description": "Shannon entropy of pause durations. Threshold: 2.0 bits"
+        },
+        "positiveNegativeRatio": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Insertions / (insertions + deletions)"
+        },
+        "deletionClustering": {
+          "type": "number",
+          "description": "Nearest-neighbor distance ratio. Below 1 = clustered deletions"
+        }
+      }
+    }
+  }
+}

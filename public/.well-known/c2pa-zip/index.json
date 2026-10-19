@@ -1,0 +1,7 @@
+{
+  "name": "c2pa-zip",
+  "controller": "did:web:writerslogic.com",
+  "service": "did:web:writerslogic.com#c2pa-zip",
+  "repository": "https://github.com/writerslogic/c2pa-zip",
+  "description": "ZIP container binding and manifest routing"
+}

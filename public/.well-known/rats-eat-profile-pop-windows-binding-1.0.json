@@ -1,0 +1,13 @@
+{
+  "profile": "https://writerslogic.com/.well-known/rats-eat-profile-pop-windows-binding-1.0.json",
+  "name": "PoP Platform-Binding EAT Profile (Windows)",
+  "version": "1.0",
+  "description": "A real TPM2_Quote under a restricted AIK whose qualifyingData commits to the running image's Authenticode identity and build revision. Deliberately distinct from the Apple platform-binding profile: a TPM quote plus Authenticode is not a Secure Enclave key plus notarization, and the two must not be read as interchangeable.",
+  "basedOn": "RFC 9711 (EAT), RFC 8747 (cnf), TPM 2.0 Library Specification",
+  "wireFormat": "CWT (RFC 8392), COSE_Sign1 (RFC 9052)",
+  "specification": "https://github.com/writerslogic/writersproof",
+  "attestationMethod": "windows_tpm_authenticode_composite",
+  "limitations": "The quote covers firmware, bootloader and kernel PCRs; no PCR measures the application binary. The code-identity claim is bound to the quote by COMMITMENT only, which proves the claim was presented at quote time, not that it is true. The WinVerifyTrust result is the attesting host's own evaluation, not a transferable Microsoft signature. The build revision is self-reported by the binary; only the Authenticode signature over that image makes it checkable by a third party. Every token carries these limitations verbatim in its own limitations claim.",
+  "supersedes": "urn:ietf:params:rats:eat:profile:pop-windows-binding:1.0",
+  "notes": "Published under this domain because urn:ietf:params: is IANA-controlled and this profile was never IETF-WG-adopted; a dereferenceable URI needs no registration."
+}

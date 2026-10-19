@@ -1,0 +1,12 @@
+{
+  "profile": "https://writerslogic.com/.well-known/rats-eat-profile-pop-key-1.0.json",
+  "name": "PoP Signing-Key Attestation EAT Profile",
+  "version": "1.0",
+  "description": "IETF RATS Evidence profile for signing-key attestation: a COSE_Sign1-wrapped CWT in which the device attester key asserts hardware-custody facts about the C2PA content-signing key. The confirmation key (cnf, RFC 8747 claim 8) is the attested C2PA signing public key.",
+  "basedOn": "RFC 9711 (EAT), RFC 8747 (cnf)",
+  "wireFormat": "CWT (RFC 8392), COSE_Sign1 (RFC 9052)",
+  "specification": "https://github.com/writerslogic/writersproof",
+  "attesters": ["Apple Secure Enclave (macOS)", "TPM 2.0 (Windows, Linux)", "software fallback (test only)"],
+  "supersedes": "urn:ietf:params:rats:eat:profile:pop-key:1.0",
+  "notes": "Published under this domain because urn:ietf:params: is IANA-controlled and this profile was never IETF-WG-adopted; a dereferenceable URI needs no registration."
+}

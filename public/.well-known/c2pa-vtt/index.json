@@ -1,0 +1,7 @@
+{
+  "name": "c2pa-vtt",
+  "controller": "did:web:writerslogic.com",
+  "service": "did:web:writerslogic.com#c2pa-vtt",
+  "repository": "https://github.com/writerslogic/c2pa-vtt",
+  "description": "WebVTT caption and subtitle track binding"
+}

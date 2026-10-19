@@ -1,0 +1,642 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://writerslogic.com/schemas/evidence-bundle.schema.json",
+  "title": "WritersLogic Evidence Bundle (Deprecated)",
+  "description": "DEPRECATED: The evidence bundle ZIP format is being phased out in favor of the unified C2PA manifest. This schema is retained for backward compatibility with existing bundles. See https://writerslogic.com/ns/v1/ for the current assertion schemas.",
+  "type": "object",
+  "required": ["version", "bundleId", "userId", "createdAt", "sessions", "chainEntries", "signatures"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "version": {
+      "type": "integer",
+      "description": "Evidence bundle schema version",
+      "minimum": 1,
+      "maximum": 999
+    },
+    "bundleId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for this bundle"
+    },
+    "userId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "User account identifier"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO8601 timestamp when bundle was created"
+    },
+    "exportedBy": {
+      "type": "string",
+      "description": "Client version that exported this bundle"
+    },
+    "sessions": {
+      "type": "array",
+      "description": "Collection of session traces included in this bundle",
+      "items": {
+        "$ref": "#/$defs/SessionTrace"
+      },
+      "minItems": 1
+    },
+    "chainEntries": {
+      "type": "array",
+      "description": "Hash chain entries for tamper detection",
+      "items": {
+        "$ref": "#/$defs/ChainEntry"
+      },
+      "minItems": 1
+    },
+    "signatures": {
+      "$ref": "#/$defs/BundleSignatures"
+    },
+    "metadata": {
+      "$ref": "#/$defs/BundleMetadata"
+    }
+  },
+  "$defs": {
+    "SessionTrace": {
+      "type": "object",
+      "description": "A single session trace representing one continuous writing period",
+      "required": [
+        "id",
+        "deviceId",
+        "userId",
+        "appCategory",
+        "connectorType",
+        "platform",
+        "startTime",
+        "endTime",
+        "durationMs",
+        "metrics",
+        "schemaVersion",
+        "clientBuild",
+        "engineVersion",
+        "connectorVersion",
+        "signature",
+        "recordHash"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "UUIDv7 session identifier"
+        },
+        "deviceId": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 hash of device fingerprint"
+        },
+        "userId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "User account UUID"
+        },
+        "appCategory": {
+          "type": "string",
+          "description": "Keyed hash of application bundle identifier"
+        },
+        "connectorType": {
+          "type": "string",
+          "enum": ["accessibility", "file_watcher", "browser_helper", "manual"],
+          "description": "Type of connector that captured this session"
+        },
+        "platform": {
+          "type": "string",
+          "enum": ["macos", "windows", "linux"],
+          "description": "Operating system platform"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO8601 UTC session start timestamp"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO8601 UTC session end timestamp"
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Session duration in milliseconds"
+        },
+        "metrics": {
+          "$ref": "#/$defs/ProcessMetrics"
+        },
+        "stylometry": {
+          "$ref": "#/$defs/StyleFeatures"
+        },
+        "schemaVersion": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Evidence schema version"
+        },
+        "clientBuild": {
+          "type": "string",
+          "description": "Client software version identifier"
+        },
+        "engineVersion": {
+          "type": "string",
+          "description": "Feature engine version"
+        },
+        "connectorVersion": {
+          "type": "string",
+          "description": "Connector module version"
+        },
+        "signature": {
+          "type": "string",
+          "description": "Base64-encoded Ed25519 signature"
+        },
+        "recordHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 hash of canonical record JSON"
+        },
+        "prevHash": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Previous session's record hash (null for first)"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server receipt timestamp"
+        }
+      }
+    },
+    "ProcessMetrics": {
+      "type": "object",
+      "description": "Writing process metrics",
+      "required": ["insertCount", "deleteCount", "pasteCount", "totalCharacters"],
+      "properties": {
+        "insertCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total insert operations"
+        },
+        "deleteCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total delete operations"
+        },
+        "pasteCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total paste operations"
+        },
+        "pasteSizeBuckets": {
+          "$ref": "#/$defs/PasteSizeBuckets"
+        },
+        "interEventHistogram": {
+          "$ref": "#/$defs/Histogram"
+        },
+        "pauseDistribution": {
+          "$ref": "#/$defs/PauseDistribution"
+        },
+        "burstMetrics": {
+          "$ref": "#/$defs/BurstMetrics"
+        },
+        "correctionMetrics": {
+          "$ref": "#/$defs/CorrectionMetrics"
+        },
+        "totalCharacters": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Approximate total characters processed"
+        },
+        "totalTokens": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Approximate token count"
+        },
+        "wordsPerMinute": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Estimated typing speed"
+        }
+      }
+    },
+    "PasteSizeBuckets": {
+      "type": "object",
+      "description": "Paste event counts by size category",
+      "required": ["tiny", "small", "medium", "large"],
+      "properties": {
+        "tiny": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Paste operations with 0-20 characters"
+        },
+        "small": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Paste operations with 21-200 characters"
+        },
+        "medium": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Paste operations with 201-2000 characters"
+        },
+        "large": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Paste operations with 2001+ characters"
+        }
+      }
+    },
+    "Histogram": {
+      "type": "object",
+      "description": "A histogram with bucket bounds and counts",
+      "required": ["bucketBoundsMs", "counts"],
+      "properties": {
+        "bucketBoundsMs": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "Upper bounds for each bucket in milliseconds"
+        },
+        "counts": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "description": "Count of events in each bucket"
+        }
+      }
+    },
+    "PauseDistribution": {
+      "type": "object",
+      "description": "Pause timing by syntactic position",
+      "properties": {
+        "atSentenceBoundary": {
+          "$ref": "#/$defs/Histogram"
+        },
+        "atParagraphBoundary": {
+          "$ref": "#/$defs/Histogram"
+        },
+        "midSentence": {
+          "$ref": "#/$defs/Histogram"
+        }
+      }
+    },
+    "BurstMetrics": {
+      "type": "object",
+      "description": "Typing burst analysis",
+      "properties": {
+        "burstLengthHistogram": {
+          "$ref": "#/$defs/Histogram"
+        },
+        "burstCountHistogram": {
+          "$ref": "#/$defs/Histogram"
+        },
+        "meanBurstLength": {
+          "type": "number",
+          "minimum": 0
+        },
+        "medianBurstLength": {
+          "type": "number",
+          "minimum": 0
+        },
+        "stdDevBurstLength": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "CorrectionMetrics": {
+      "type": "object",
+      "description": "Editing and correction behavior",
+      "properties": {
+        "deletionsPerMinute": {
+          "type": "number",
+          "minimum": 0
+        },
+        "meanDeletionSize": {
+          "type": "number",
+          "minimum": 0
+        },
+        "immediateCorrections": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Deletions within 2 seconds of insert"
+        },
+        "delayedCorrections": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Deletions after 2+ seconds"
+        }
+      }
+    },
+    "StyleFeatures": {
+      "type": "object",
+      "description": "Stylometric features extracted from text",
+      "properties": {
+        "functionWordVector": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 150,
+          "maxItems": 150,
+          "description": "Normalized frequencies for 150 function words"
+        },
+        "functionWordSketch": {
+          "$ref": "#/$defs/CountMinSketch"
+        },
+        "posTrigramSketch": {
+          "$ref": "#/$defs/CountMinSketch"
+        },
+        "punctuationVector": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "Normalized punctuation frequencies"
+        },
+        "punctuationSequences": {
+          "$ref": "#/$defs/CountMinSketch"
+        },
+        "sentenceLengthHistogram": {
+          "$ref": "#/$defs/Histogram"
+        },
+        "paragraphLengthHistogram": {
+          "$ref": "#/$defs/Histogram"
+        },
+        "commaDensity": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Average commas per sentence"
+        },
+        "revision": {
+          "$ref": "#/$defs/RevisionFeatures"
+        }
+      }
+    },
+    "CountMinSketch": {
+      "type": "object",
+      "description": "Count-Min Sketch probabilistic data structure",
+      "required": ["width", "depth", "data", "keyEpoch"],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of columns in the sketch"
+        },
+        "depth": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of hash functions (rows)"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "Flattened matrix data (row-major order)"
+        },
+        "keyEpoch": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Key rotation epoch for hash functions"
+        }
+      }
+    },
+    "RevisionFeatures": {
+      "type": "object",
+      "description": "Document revision behavior features",
+      "properties": {
+        "editDensity": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Edits per 100 characters"
+        },
+        "rewriteRatio": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Characters deleted / characters inserted"
+        },
+        "iterationDepth": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Average edits in same region"
+        },
+        "cursorJumpFrequency": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Frequency of non-sequential edits"
+        }
+      }
+    },
+    "ChainEntry": {
+      "type": "object",
+      "description": "A single entry in the tamper-evident hash chain",
+      "required": ["sequenceNumber", "sessionId", "recordHash", "chainHash", "timestamp"],
+      "properties": {
+        "sequenceNumber": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Monotonically increasing sequence number"
+        },
+        "sessionId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "UUID of the associated session trace"
+        },
+        "recordHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 hash of the session record"
+        },
+        "prevChainHash": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Previous entry's chain hash (null for first entry)"
+        },
+        "chainHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "This entry's computed chain hash"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO8601 UTC timestamp when entry was created"
+        }
+      }
+    },
+    "BundleSignatures": {
+      "type": "object",
+      "description": "Signatures for bundle integrity verification",
+      "required": ["bundleHash", "deviceSignatures"],
+      "properties": {
+        "bundleHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 hash of bundle contents (excluding signatures)"
+        },
+        "deviceSignatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DeviceSignature"
+          },
+          "minItems": 1,
+          "description": "Signatures from devices that contributed sessions"
+        },
+        "serverSignature": {
+          "$ref": "#/$defs/ServerSignature"
+        }
+      }
+    },
+    "DeviceSignature": {
+      "type": "object",
+      "description": "Signature from a device that contributed sessions",
+      "required": ["deviceId", "publicKey", "signature", "signedAt"],
+      "properties": {
+        "deviceId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Device UUID"
+        },
+        "publicKey": {
+          "type": "string",
+          "description": "Base64-encoded Ed25519 public key"
+        },
+        "signature": {
+          "type": "string",
+          "description": "Base64-encoded Ed25519 signature over bundle hash"
+        },
+        "signedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when signature was created"
+        },
+        "sessionIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "description": "Sessions this device signed"
+        }
+      }
+    },
+    "ServerSignature": {
+      "type": "object",
+      "description": "Optional server attestation signature",
+      "required": ["signature", "signedAt", "keyId"],
+      "properties": {
+        "keyId": {
+          "type": "string",
+          "description": "Identifier for the server signing key"
+        },
+        "signature": {
+          "type": "string",
+          "description": "Base64-encoded signature"
+        },
+        "signedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server signature timestamp"
+        },
+        "attestations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Server attestations (e.g., 'chain_verified', 'signatures_valid')"
+        }
+      }
+    },
+    "BundleMetadata": {
+      "type": "object",
+      "description": "Additional bundle metadata",
+      "properties": {
+        "title": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "User-provided bundle title"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 2000,
+          "description": "User-provided description"
+        },
+        "dateRange": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "end": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "description": "Date range covered by sessions"
+        },
+        "sessionCount": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of sessions in bundle"
+        },
+        "totalDurationMs": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total writing time across all sessions"
+        },
+        "deviceCount": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of unique devices"
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["macos", "windows", "linux"]
+          },
+          "description": "Platforms represented in bundle"
+        },
+        "connectorTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["accessibility", "file_watcher", "browser_helper", "manual"]
+          },
+          "description": "Connector types used"
+        },
+        "exportPurpose": {
+          "type": "string",
+          "enum": ["verification", "backup", "legal", "dispute"],
+          "description": "Stated purpose of export"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 5000,
+          "description": "Additional notes from user"
+        }
+      }
+    }
+  }
+}

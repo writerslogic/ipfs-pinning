@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://writerslogic.com/ns/v1/schemas/process-proof.schema.json",
+  "title": "WritersProof Process Proof Assertion",
+  "description": "C2PA custom assertion containing the authorship verdict and composite forensic signal scores. Label: com.writerslogic.process-proof",
+  "type": "object",
+  "required": ["version", "evidenceId", "evidenceHash"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 2,
+      "description": "Schema version"
+    },
+    "evidenceId": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$",
+      "description": "Hex-encoded 16-byte evidence packet UUID"
+    },
+    "evidenceHash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "SHA-256 hex digest of the original evidence packet bytes"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["human-authored", "mixed-input", "transcriptive", "insufficient"],
+      "description": "Overall authorship classification"
+    },
+    "assessmentScore": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Composite human-likeness score where 1.0 = strongly cognitive"
+    },
+    "riskLevel": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "insufficient"],
+      "description": "Risk classification derived from assessment score thresholds"
+    },
+    "writingMode": {
+      "type": "string",
+      "enum": ["cognitive", "transcriptive", "mixed", "insufficient"],
+      "description": "Dominant writing mode classification from cadence analysis"
+    },
+    "compositionMode": {
+      "type": ["string", "null"],
+      "enum": ["direct-composition", "ai-mediated", "mixed", null],
+      "description": "Whether AI tools were involved in composition"
+    },
+    "attestationTier": {
+      "type": "integer",
+      "enum": [1, 2, 3],
+      "description": "1=software-only signing, 2=enhanced (typing analysis), 3=hardware (Secure Enclave/TPM)"
+    },
+    "signalScores": {
+      "type": "object",
+      "description": "Per-dimension composite scores from the 5 forensic analysis families",
+      "properties": {
+        "cognitiveLoad": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "IKI-surprisal entanglement (Spearman rho between keystroke timing and word surprisal)"
+        },
+        "revisionTopology": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "DAG non-linearity of edit positions (branching, revisit depth, frontier distance)"
+        },
+        "errorEcology": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Motor vs. visual error distribution (Jensen-Shannon divergence from cognitive reference)"
+        },
+        "likelihoodModel": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Bayesian P(cognitive) from per-window log-likelihood ratio model"
+        },
+        "compositionMode": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Pure composition vs. AI-mediated authoring score"
+        }
+      },
+      "required": ["cognitiveLoad", "revisionTopology", "errorEcology", "likelihoodModel", "compositionMode"]
+    },
+    "forgeryDifficulty": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Estimated adversary effort required to forge this evidence profile"
+    },
+    "transcriptionSuspicious": {
+      "type": "boolean",
+      "description": "True when unexplained correction ratio exceeds 15% or error ecology score below 0.3"
+    },
+    "aiFluencyFlag": {
+      "type": "boolean",
+      "description": "True when word-trigram perplexity falls below the AI-generated text threshold"
+    },
+    "analysisCompleteness": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18,
+      "description": "Count of successfully completed analysis modules (out of 18 total)"
+    },
+    "processStart": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 timestamp of the first checkpoint in the evidence chain"
+    },
+    "processEnd": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 timestamp of the last checkpoint in the evidence chain"
+    }
+  }
+}

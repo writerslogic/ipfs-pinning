@@ -1,0 +1,12 @@
+{
+  "profile": "https://writerslogic.com/.well-known/rats-eat-profile-pop-platform-binding-1.0.json",
+  "name": "PoP Platform-Binding EAT Profile (Apple)",
+  "version": "1.0",
+  "description": "Ties a hardware-held signing key to the specific Apple-signed binary that holds it. Carries, in one COSE_Sign1 CWT: the content-signing public key (cnf, RFC 8747), the running bundle's code-directory hash, team ID and bundle ID, the Apple-issued code-signing certificate chain (DER, leaf first), the host's own notarization requirement evaluation, and optionally the opaque Secure Enclave key-attestation blob.",
+  "basedOn": "RFC 9711 (EAT), RFC 8747 (cnf)",
+  "wireFormat": "CWT (RFC 8392), COSE_Sign1 (RFC 9052)",
+  "specification": "https://github.com/writerslogic/writersproof",
+  "limitations": "IMPORTANT: this is NOT Apple App Attest and must never be presented as equivalent. App Attest performs a live challenge-response checked by Apple's servers per request, evidencing that the currently executing process is genuine and unmodified. This profile evidences the identity of the signed binary on disk and the host's own local evaluation of it.",
+  "supersedes": "urn:ietf:params:rats:eat:profile:pop-platform-binding:1.0",
+  "notes": "Published under this domain because urn:ietf:params: is IANA-controlled and this profile was never IETF-WG-adopted; a dereferenceable URI needs no registration."
+}

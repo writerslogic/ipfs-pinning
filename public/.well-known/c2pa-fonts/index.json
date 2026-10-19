@@ -1,0 +1,7 @@
+{
+  "name": "c2pa-fonts",
+  "controller": "did:web:writerslogic.com",
+  "service": "did:web:writerslogic.com#c2pa-fonts",
+  "repository": "https://github.com/writerslogic/c2pa-fonts",
+  "description": "Font and glyph provenance bindings"
+}

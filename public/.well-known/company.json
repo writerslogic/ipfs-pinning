@@ -1,0 +1,106 @@
+{
+  "company": {
+    "name": "WritersLogic",
+    "legal_name": "WritersLogic, Inc.",
+    "jurisdiction": "Delaware C-Corporation",
+    "website": "https://writerslogic.com",
+    "did": "did:web:writerslogic.com",
+    "did_document": "https://writerslogic.com/.well-known/did.json",
+    "ark": {
+      "naan": "56439",
+      "namespace": "https://writerslogic.com/ark:56439/",
+      "policy": "https://writerslogic.com/ark-policy"
+    },
+    "description": "WritersLogic builds open-source tools and standards that let writers prove they wrote their own work.",
+    "tagline": "We Build Proof of Authorship",
+    "founded_year": 2026,
+    "industry": "Software Development / Content Authentication / Authorship Verification",
+    "company_type": "Private",
+    "certifications": [
+      "Service-Disabled Veteran-Owned Small Business (SDVOSB)"
+    ],
+    "headquarters": {
+      "city": "San Diego",
+      "state": "California",
+      "country": "United States"
+    },
+    "leadership": [
+      {
+        "name": "David Condrey",
+        "title": "Founder and Principal Engineer",
+        "did": "did:web:writerslogic.com:executives:dcondrey",
+        "orcid": "https://orcid.org/0009-0003-1849-2963"
+      }
+    ],
+    "service_areas": [
+      "Content Authentication",
+      "Proof of Authorship",
+      "Authorship Verification",
+      "Writer Tools",
+      "Open Standards"
+    ],
+    "products": [
+      {
+        "name": "WritersProof",
+        "description": "Desktop and CLI application for responsible AI-use infrastructure. Records behavioral/timing/editing patterns during writing. Writers attest to AI involvement and receive forensic PDF reports + evidence packets (C2PA manifests + verifiable credentials).",
+        "website": "https://writersproof.com",
+        "status": "Live (macOS v1.0.5+, Windows in development)",
+        "pricing_tiers": [
+          {
+            "name": "Free",
+            "price": "$0",
+            "period": "forever",
+            "description": "WritersProof CLI. Record and publish up to 10,000 proofs/month"
+          },
+          {
+            "name": "Pro",
+            "price": "$7.50",
+            "period": "/month ($84/year billed annually)",
+            "description": "WritersProof Desktop. Desktop app, timestamps, watermarks, priority support"
+          }
+        ],
+        "category": "Content Authentication / Authorship Verification"
+      }
+    ],
+    "api_offerings": [
+      {
+        "name": "Publisher API",
+        "description": "B2B Verification API for publishers, agents, and journals",
+        "website": "https://writersproof.com",
+        "pricing": "100 free/month, then $10 per 1,000 additional verifications",
+        "access": "Create account and login at https://writersproof.com",
+        "features": ["Bulk verification", "REST API", "Dashboards", "Dedicated account manager", "SLA guarantees"]
+      }
+    ],
+    "contact": {
+      "email": "hello@writerslogic.com",
+      "support_email": "support@writerslogic.com",
+      "website": "https://writerslogic.com",
+      "github": "https://github.com/writerslogic"
+    },
+    "social_media": {
+      "github": "https://github.com/writerslogic",
+      "twitter": "https://twitter.com/writerslogic",
+      "linkedin": "https://www.linkedin.com/company/writerslogic"
+    },
+    "logo": {
+      "url": "https://writerslogic.com/logo.svg",
+      "alt_text": "WritersLogic Logo"
+    },
+    "og_image": "https://writerslogic.com/og-image.png",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Cloudflare Pages",
+      "Supabase",
+      "Open Standards",
+      "Ed25519 Cryptography",
+      "C2PA"
+    ],
+    "meta": {
+      "last_updated": "2026-10-11",
+      "version": "1.2",
+      "pricing_source": "https://writerslogic.com/pricing"
+    }
+  }
+}

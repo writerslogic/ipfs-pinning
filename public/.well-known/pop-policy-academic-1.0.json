@@ -1,0 +1,15 @@
+{
+  "policy": "https://writerslogic.com/.well-known/pop-policy-academic-1.0.json",
+  "name": "Academic Submission",
+  "version": "1.0",
+  "description": "Policy for academic paper and thesis submissions. Emitted as the EAR appraisal policy identifier (draft-ietf-rats-ear ear.appraisal-policy-id) on results appraised under this policy.",
+  "computation": "WeightedAverage",
+  "thresholds": [
+    { "name": "minimum-overall", "type": "MinimumScore", "value": 0.70 },
+    { "name": "presence-required", "type": "RequiredFactor" }
+  ],
+  "applicableDomains": ["academic", "education"],
+  "specification": "https://github.com/writerslogic/writersproof",
+  "supersedes": "urn:ietf:params:pop:policy:academic",
+  "notes": "Published under this domain because urn:ietf:params: is IANA-controlled and this policy was never IETF-WG-adopted; a dereferenceable URI needs no registration."
+}

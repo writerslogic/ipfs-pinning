@@ -1,0 +1,7 @@
+{
+  "name": "c2pa-warc",
+  "controller": "did:web:writerslogic.com",
+  "service": "did:web:writerslogic.com#c2pa-warc",
+  "repository": "https://github.com/writerslogic/c2pa-warc",
+  "description": "ISO 28500 WARC web-archive capture provenance"
+}

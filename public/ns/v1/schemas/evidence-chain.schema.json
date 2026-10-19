@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://writerslogic.com/ns/v1/schemas/evidence-chain.schema.json",
+  "title": "WritersProof Evidence Chain Assertion",
+  "description": "C2PA custom assertion containing the temporal checkpoint chain with per-checkpoint cryptographic seals. Label: com.writerslogic.evidence-chain",
+  "type": "object",
+  "required": ["version", "checkpointCount", "chainDurationSec", "seals"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "checkpointCount": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of checkpoints in the evidence chain"
+    },
+    "chainDurationSec": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Wall-clock seconds between first and last checkpoint"
+    },
+    "seals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sequence", "timestamp", "sealHash"],
+        "properties": {
+          "sequence": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Monotonic checkpoint ordinal"
+          },
+          "timestamp": {
+            "type": "integer",
+            "description": "Unix timestamp in milliseconds (UTC)"
+          },
+          "sealHash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "SHA-256 hex digest of the checkpoint state (commits to content hash, jitter binding, and chain predecessor)"
+          }
+        }
+      },
+      "description": "Ordered array of per-checkpoint seals binding evidence to time"
+    },
+    "sessionStats": {
+      "type": ["object", "null"],
+      "description": "Aggregate session statistics across the evidence chain",
+      "properties": {
+        "sessionCount": {
+          "type": "integer",
+          "description": "Number of editing sessions (gaps >30 min separate sessions)"
+        },
+        "avgSessionDurationSec": {
+          "type": "number"
+        },
+        "totalEditingTimeSec": {
+          "type": "number",
+          "description": "Cumulative active editing duration"
+        },
+        "timeSpanSec": {
+          "type": "number",
+          "description": "Wall-clock span from first to last event"
+        }
+      }
+    }
+  }
+}

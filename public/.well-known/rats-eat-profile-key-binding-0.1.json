@@ -1,0 +1,11 @@
+{
+  "profile": "https://writerslogic.com/.well-known/rats-eat-profile-key-binding-0.1.json",
+  "name": "PoP Key-Binding EAT Profile",
+  "version": "0.1",
+  "description": "Binds a subject public key to an attested execution environment. Carries the key-attributes claim (private label 73010) alongside the standard cnf claim (RFC 8747, label 8) so a relying party can verify the key was generated inside the attested environment rather than imported.",
+  "basedOn": "draft-reddy-rats-key-binding-01",
+  "wireFormat": "CWT (RFC 8392), COSE_Sign1 (RFC 9052)",
+  "specification": "https://github.com/writerslogic/writersproof",
+  "supersedes": "urn:ietf:params:rats:eat:profile:key-binding:0.1",
+  "notes": "Published under this domain because urn:ietf:params: is IANA-controlled and the underlying draft was never WG-adopted; a dereferenceable URI needs no registration. Version 0.1 tracks the draft revision this implementation targets."
+}

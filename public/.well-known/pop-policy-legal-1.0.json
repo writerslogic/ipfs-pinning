@@ -1,0 +1,17 @@
+{
+  "policy": "https://writerslogic.com/.well-known/pop-policy-legal-1.0.json",
+  "name": "Legal / Forensic",
+  "version": "1.0",
+  "description": "Minimum-of-factors model with hardware attestation required. Emitted as the EAR appraisal policy identifier (draft-ietf-rats-ear ear.appraisal-policy-id) on results appraised under this policy.",
+  "computation": "MinimumOfFactors",
+  "factors": [
+    { "name": "chain-integrity", "type": "ChainIntegrity", "weight": 1.0 }
+  ],
+  "thresholds": [
+    { "name": "hardware-required", "type": "RequiredFactor" }
+  ],
+  "applicableDomains": ["legal", "forensic"],
+  "specification": "https://github.com/writerslogic/writersproof",
+  "supersedes": "urn:ietf:params:pop:policy:legal",
+  "notes": "Published under this domain because urn:ietf:params: is IANA-controlled and this policy was never IETF-WG-adopted; a dereferenceable URI needs no registration."
+}

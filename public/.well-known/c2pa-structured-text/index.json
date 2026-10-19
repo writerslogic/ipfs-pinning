@@ -1,0 +1,7 @@
+{
+  "name": "c2pa-structured-text",
+  "controller": "did:web:writerslogic.com",
+  "service": "did:web:writerslogic.com#c2pa-structured-text",
+  "repository": "https://github.com/writerslogic/c2pa-structured-text",
+  "description": "Structured ASCII armour delimiters and file block bindings (C2PA A.9)"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@writerslogic/ipfs-pinning",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "wrangler dev",
+    "check": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "snapshot": "node scripts/snapshot.mjs",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types --strict-vars=false"
+  },
+  "dependencies": { "multiformats": "14.0.5" },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "wrangler": "4.151.1"
+  }
+}

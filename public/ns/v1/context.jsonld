@@ -1,0 +1,1004 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+
+    "wlp": "https://writerslogic.com/ns/v1/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "cred": "https://www.w3.org/2018/credentials#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rats": "urn:ietf:params:rats:",
+    "schema": "https://schema.org/",
+
+    "ProcessAttestationCredential": "wlp:ProcessAttestationCredential",
+    "AuthorshipCredential": "wlp:AuthorshipCredential",
+    "AuthorshipClaim": "wlp:AuthorshipClaim",
+    "ProcessAttestation": "wlp:ProcessAttestation",
+    "PopAttestationResult": "wlp:PopAttestationResult",
+    "PopEvidencePacket": "wlp:PopEvidencePacket",
+
+    "AuthorshipReport": "wlp:AuthorshipReport",
+    "EvidencePacket": "wlp:EvidencePacket",
+    "WritingSession": "wlp:WritingSession",
+    "CheckpointChain": "wlp:CheckpointChain",
+    "Checkpoint": "wlp:Checkpoint",
+    "VerificationResult": "wlp:VerificationResult",
+    "ForensicEngine": "wlp:ForensicEngine",
+    "DocumentArtifact": "wlp:DocumentArtifact",
+    "ForensicExamination": "wlp:ForensicExamination",
+    "DimensionScore": "wlp:DimensionScore",
+    "ProcessEvidence": "wlp:ProcessEvidence",
+    "ForgeryAssessment": "wlp:ForgeryAssessment",
+    "AnalysisFlag": "wlp:AnalysisFlag",
+
+    "ProcessProofAssertion": "wlp:ProcessProofAssertion",
+    "KeystrokeCadenceAssertion": "wlp:KeystrokeCadenceAssertion",
+    "CognitiveMarkersAssertion": "wlp:CognitiveMarkersAssertion",
+    "EvidenceChainAssertion": "wlp:EvidenceChainAssertion",
+    "VerifiableCredentialAssertion": "wlp:VerifiableCredentialAssertion",
+
+    "verdict": {
+      "@id": "wlp:verdict",
+      "@type": "xsd:string",
+      "@context": {
+        "@protected": true,
+        "human-authored": "wlp:verdict-human-authored",
+        "mixed-input": "wlp:verdict-mixed-input",
+        "transcriptive": "wlp:verdict-transcriptive",
+        "insufficient": "wlp:verdict-insufficient"
+      }
+    },
+
+    "attestationTier": {
+      "@id": "wlp:attestationTier",
+      "@type": "xsd:integer",
+      "@context": {
+        "@protected": true,
+        "software-only": "wlp:tier-software-only",
+        "attested-software": "wlp:tier-attested-software",
+        "hardware-bound": "wlp:tier-hardware-bound"
+      }
+    },
+
+    "contentTier": {
+      "@id": "wlp:contentTier",
+      "@type": "xsd:string",
+      "@context": {
+        "@protected": true,
+        "core": "wlp:content-core",
+        "enhanced": "wlp:content-enhanced",
+        "maximum": "wlp:content-maximum"
+      }
+    },
+
+    "writingMode": {
+      "@id": "wlp:writingMode",
+      "@type": "xsd:string"
+    },
+    "compositionMode": {
+      "@id": "wlp:compositionMode",
+      "@type": "xsd:string"
+    },
+    "riskLevel": {
+      "@id": "wlp:riskLevel",
+      "@type": "xsd:string"
+    },
+    "assessmentScore": {
+      "@id": "wlp:assessmentScore",
+      "@type": "xsd:decimal"
+    },
+    "forgeryDifficulty": {
+      "@id": "wlp:forgeryDifficulty",
+      "@type": "xsd:decimal"
+    },
+    "analysisCompleteness": {
+      "@id": "wlp:analysisCompleteness",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "transcriptionSuspicious": {
+      "@id": "wlp:transcriptionSuspicious",
+      "@type": "xsd:boolean"
+    },
+    "aiFluencyFlag": {
+      "@id": "wlp:aiFluencyFlag",
+      "@type": "xsd:boolean"
+    },
+
+    "signalScores": {
+      "@id": "wlp:signalScores",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "cognitiveLoad": {
+          "@id": "wlp:cognitiveLoadScore",
+          "@type": "xsd:decimal"
+        },
+        "revisionTopology": {
+          "@id": "wlp:revisionTopologyScore",
+          "@type": "xsd:decimal"
+        },
+        "errorEcology": {
+          "@id": "wlp:errorEcologyScore",
+          "@type": "xsd:decimal"
+        },
+        "likelihoodModel": {
+          "@id": "wlp:likelihoodModelScore",
+          "@type": "xsd:decimal"
+        },
+        "compositionMode": {
+          "@id": "wlp:compositionModeScore",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "evidenceId": {
+      "@id": "wlp:evidenceId",
+      "@type": "xsd:string"
+    },
+    "evidenceHash": {
+      "@id": "wlp:evidenceHash",
+      "@type": "xsd:string"
+    },
+    "evidenceRef": {
+      "@id": "wlp:evidenceRef",
+      "@type": "xsd:string"
+    },
+    "documentHash": {
+      "@id": "wlp:documentHash",
+      "@type": "xsd:string"
+    },
+    "documentRef": {
+      "@id": "wlp:documentRef",
+      "@type": "xsd:string"
+    },
+    "processStart": {
+      "@id": "wlp:processStart",
+      "@type": "xsd:dateTime"
+    },
+    "processEnd": {
+      "@id": "wlp:processEnd",
+      "@type": "xsd:dateTime"
+    },
+
+    "keystrokeCount": {
+      "@id": "wlp:keystrokeCount",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "sessionDurationSec": {
+      "@id": "wlp:sessionDurationSec",
+      "@type": "xsd:decimal"
+    },
+    "biologicalCadenceScore": {
+      "@id": "wlp:biologicalCadenceScore",
+      "@type": "xsd:decimal"
+    },
+    "hurstExponent": {
+      "@id": "wlp:hurstExponent",
+      "@type": "xsd:decimal"
+    },
+
+    "timing": {
+      "@id": "wlp:timing",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "meanIkiMs": {
+          "@id": "wlp:meanIkiMs",
+          "@type": "xsd:decimal"
+        },
+        "medianIkiMs": {
+          "@id": "wlp:medianIkiMs",
+          "@type": "xsd:decimal"
+        },
+        "coefficientOfVariation": {
+          "@id": "wlp:coefficientOfVariation",
+          "@type": "xsd:decimal"
+        },
+        "ikiPercentiles": {
+          "@id": "wlp:ikiPercentiles",
+          "@container": "@list"
+        },
+        "burstCount": {
+          "@id": "wlp:burstCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "avgBurstLength": {
+          "@id": "wlp:avgBurstLength",
+          "@type": "xsd:decimal"
+        },
+        "pauseCount": {
+          "@id": "wlp:pauseCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "avgPauseDurationMs": {
+          "@id": "wlp:avgPauseDurationMs",
+          "@type": "xsd:decimal"
+        },
+        "pauseDepthDistribution": {
+          "@id": "wlp:pauseDepthDistribution",
+          "@container": "@list"
+        }
+      }
+    },
+
+    "dwell": {
+      "@id": "wlp:dwell",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "meanDwellMs": {
+          "@id": "wlp:meanDwellMs",
+          "@type": "xsd:decimal"
+        },
+        "dwellCv": {
+          "@id": "wlp:dwellCv",
+          "@type": "xsd:decimal"
+        },
+        "meanFlightMs": {
+          "@id": "wlp:meanFlightMs",
+          "@type": "xsd:decimal"
+        },
+        "flightCv": {
+          "@id": "wlp:flightCv",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "corrections": {
+      "@id": "wlp:corrections",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "correctionRatio": {
+          "@id": "wlp:correctionRatio",
+          "@type": "xsd:decimal"
+        },
+        "crossHandTimingRatio": {
+          "@id": "wlp:crossHandTimingRatio",
+          "@type": "xsd:decimal"
+        },
+        "postPauseCv": {
+          "@id": "wlp:postPauseCv",
+          "@type": "xsd:decimal"
+        },
+        "ikiAutocorrelation": {
+          "@id": "wlp:ikiAutocorrelation",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "fatigue": {
+      "@id": "wlp:fatigue",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "phase": {
+          "@id": "wlp:fatiguePhase",
+          "@type": "xsd:integer"
+        },
+        "trajectoryResidual": {
+          "@id": "wlp:trajectoryResidual",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "spectral": {
+      "@id": "wlp:spectral",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "slope": {
+          "@id": "wlp:spectralSlope",
+          "@type": "xsd:decimal"
+        },
+        "noiseType": {
+          "@id": "wlp:noiseType",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "cognitiveLoad": {
+      "@id": "wlp:cognitiveLoad",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "ikiSurprisalRho": {
+          "@id": "wlp:ikiSurprisalRho",
+          "@type": "xsd:decimal"
+        },
+        "sentenceArcRSquared": {
+          "@id": "wlp:sentenceArcRSquared",
+          "@type": "xsd:decimal"
+        },
+        "structuralPauseConcentration": {
+          "@id": "wlp:structuralPauseConcentration",
+          "@type": "xsd:decimal"
+        },
+        "compositeScore": {
+          "@id": "wlp:compositeScore",
+          "@type": "xsd:decimal"
+        },
+        "deepPauseCount": {
+          "@id": "wlp:deepPauseCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "boundaryCount": {
+          "@id": "wlp:boundaryCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "wordCount": {
+          "@id": "wlp:wordCount",
+          "@type": "xsd:nonNegativeInteger"
+        }
+      }
+    },
+
+    "revisionTopology": {
+      "@id": "wlp:revisionTopology",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "meanBranchingFactor": {
+          "@id": "wlp:meanBranchingFactor",
+          "@type": "xsd:decimal"
+        },
+        "meanRevisitDepth": {
+          "@id": "wlp:meanRevisitDepth",
+          "@type": "xsd:decimal"
+        },
+        "meanFrontierDistance": {
+          "@id": "wlp:meanFrontierDistance",
+          "@type": "xsd:decimal"
+        },
+        "activeRegionCount": {
+          "@id": "wlp:activeRegionCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "detourRatio": {
+          "@id": "wlp:detourRatio",
+          "@type": "xsd:decimal"
+        },
+        "leadingEdgeDivergence": {
+          "@id": "wlp:leadingEdgeDivergence",
+          "@type": "xsd:decimal"
+        },
+        "insertionPointEntropy": {
+          "@id": "wlp:insertionPointEntropy",
+          "@type": "xsd:decimal"
+        },
+        "compositeScore": {
+          "@id": "wlp:compositeScore",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "errorEcology": {
+      "@id": "wlp:errorEcology",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "rapidSelfCorrectionPct": {
+          "@id": "wlp:rapidSelfCorrectionPct",
+          "@type": "xsd:decimal"
+        },
+        "immediateSmallCorrectionPct": {
+          "@id": "wlp:immediateSmallCorrectionPct",
+          "@type": "xsd:decimal"
+        },
+        "delayedCorrectionPct": {
+          "@id": "wlp:delayedCorrectionPct",
+          "@type": "xsd:decimal"
+        },
+        "bulkCorrectionPct": {
+          "@id": "wlp:bulkCorrectionPct",
+          "@type": "xsd:decimal"
+        },
+        "falseStartPct": {
+          "@id": "wlp:falseStartPct",
+          "@type": "xsd:decimal"
+        },
+        "totalCorrections": {
+          "@id": "wlp:totalCorrections",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "correctionRate": {
+          "@id": "wlp:correctionRate",
+          "@type": "xsd:decimal"
+        },
+        "jsdFromCognitive": {
+          "@id": "wlp:jsdFromCognitive",
+          "@type": "xsd:decimal"
+        },
+        "jsdFromTranscriptive": {
+          "@id": "wlp:jsdFromTranscriptive",
+          "@type": "xsd:decimal"
+        },
+        "compositeScore": {
+          "@id": "wlp:compositeScore",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "likelihoodModel": {
+      "@id": "wlp:likelihoodModel",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "sessionLlr": {
+          "@id": "wlp:sessionLlr",
+          "@type": "xsd:decimal"
+        },
+        "sessionPCognitive": {
+          "@id": "wlp:sessionPCognitive",
+          "@type": "xsd:decimal"
+        },
+        "windowCount": {
+          "@id": "wlp:windowCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "cognitiveWindowCount": {
+          "@id": "wlp:cognitiveWindowCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "transcriptiveWindowCount": {
+          "@id": "wlp:transcriptiveWindowCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "meanWindowLlr": {
+          "@id": "wlp:meanWindowLlr",
+          "@type": "xsd:decimal"
+        },
+        "llrStdDev": {
+          "@id": "wlp:llrStdDev",
+          "@type": "xsd:decimal"
+        },
+        "compositeScore": {
+          "@id": "wlp:compositeScore",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "focus": {
+      "@id": "wlp:focus",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "switchCount": {
+          "@id": "wlp:switchCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "outOfFocusRatio": {
+          "@id": "wlp:outOfFocusRatio",
+          "@type": "xsd:decimal"
+        },
+        "aiAppSwitchCount": {
+          "@id": "wlp:aiAppSwitchCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "midTypingSwitchRatio": {
+          "@id": "wlp:midTypingSwitchRatio",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "editMetrics": {
+      "@id": "wlp:editMetrics",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "monotonicAppendRatio": {
+          "@id": "wlp:monotonicAppendRatio",
+          "@type": "xsd:decimal"
+        },
+        "editEntropy": {
+          "@id": "wlp:editEntropy",
+          "@type": "xsd:decimal"
+        },
+        "timingEntropy": {
+          "@id": "wlp:timingEntropy",
+          "@type": "xsd:decimal"
+        },
+        "pauseEntropy": {
+          "@id": "wlp:pauseEntropy",
+          "@type": "xsd:decimal"
+        },
+        "positiveNegativeRatio": {
+          "@id": "wlp:positiveNegativeRatio",
+          "@type": "xsd:decimal"
+        },
+        "deletionClustering": {
+          "@id": "wlp:deletionClustering",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "checkpointCount": {
+      "@id": "wlp:checkpointCount",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "chainDurationSec": {
+      "@id": "wlp:chainDurationSec",
+      "@type": "xsd:decimal"
+    },
+    "chainLength": {
+      "@id": "wlp:chainLength",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "chainDuration": {
+      "@id": "wlp:chainDuration",
+      "@type": "xsd:nonNegativeInteger"
+    },
+
+    "seals": {
+      "@id": "wlp:seals",
+      "@type": "@id",
+      "@container": "@list"
+    },
+    "sequence": {
+      "@id": "wlp:sequence",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "timestamp": {
+      "@id": "wlp:timestamp",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "sealHash": {
+      "@id": "wlp:sealHash",
+      "@type": "xsd:string"
+    },
+
+    "sessionStats": {
+      "@id": "wlp:sessionStats",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "sessionCount": {
+          "@id": "wlp:sessionCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "avgSessionDurationSec": {
+          "@id": "wlp:avgSessionDurationSec",
+          "@type": "xsd:decimal"
+        },
+        "totalEditingTimeSec": {
+          "@id": "wlp:totalEditingTimeSec",
+          "@type": "xsd:decimal"
+        },
+        "timeSpanSec": {
+          "@id": "wlp:timeSpanSec",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "processAttestation": {
+      "@id": "wlp:processAttestation",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "status": {
+          "@id": "wlp:status",
+          "@type": "xsd:string"
+        },
+        "trustVector": {
+          "@id": "wlp:trustVector",
+          "@type": "@id"
+        },
+        "documentRef": {
+          "@id": "wlp:documentRef",
+          "@type": "xsd:string"
+        },
+        "chainDuration": {
+          "@id": "wlp:chainDuration",
+          "@type": "xsd:decimal"
+        },
+        "attestationTier": {
+          "@id": "wlp:attestationTier",
+          "@type": "xsd:integer"
+        },
+        "writingMode": {
+          "@id": "wlp:writingMode",
+          "@type": "xsd:string"
+        },
+        "compositionMode": {
+          "@id": "wlp:compositionMode",
+          "@type": "xsd:string"
+        },
+        "forensicSignals": {
+          "@id": "wlp:forensicSignals",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "forensicSignals": {
+      "@id": "wlp:forensicSignals",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "cognitiveLoadScore": {
+          "@id": "wlp:cognitiveLoadScore",
+          "@type": "xsd:decimal"
+        },
+        "revisionTopologyScore": {
+          "@id": "wlp:revisionTopologyScore",
+          "@type": "xsd:decimal"
+        },
+        "errorEcologyScore": {
+          "@id": "wlp:errorEcologyScore",
+          "@type": "xsd:decimal"
+        },
+        "likelihoodPCognitive": {
+          "@id": "wlp:likelihoodPCognitive",
+          "@type": "xsd:decimal"
+        },
+        "compositionModeScore": {
+          "@id": "wlp:compositionModeScore",
+          "@type": "xsd:decimal"
+        },
+        "detourRatio": {
+          "@id": "wlp:detourRatio",
+          "@type": "xsd:decimal"
+        },
+        "leadingEdgeDivergence": {
+          "@id": "wlp:leadingEdgeDivergence",
+          "@type": "xsd:decimal"
+        },
+        "insertionPointEntropy": {
+          "@id": "wlp:insertionPointEntropy",
+          "@type": "xsd:decimal"
+        },
+        "wordsPerMinute": {
+          "@id": "wlp:wordsPerMinute",
+          "@type": "xsd:decimal"
+        },
+        "meanIkiMs": {
+          "@id": "wlp:meanIkiMs",
+          "@type": "xsd:decimal"
+        },
+        "correctionRatio": {
+          "@id": "wlp:correctionRatio",
+          "@type": "xsd:decimal"
+        },
+        "keystrokeCount": {
+          "@id": "wlp:keystrokeCount",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "hurstExponent": {
+          "@id": "wlp:hurstExponent",
+          "@type": "xsd:decimal"
+        },
+        "forensicScore": {
+          "@id": "wlp:forensicScore",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "humanEffortRatio": {
+      "@id": "wlp:humanEffortRatio",
+      "@type": "xsd:decimal"
+    },
+
+    "entropyReport": {
+      "@id": "wlp:entropyReport",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "timingEntropy": {
+          "@id": "wlp:timingEntropy",
+          "@type": "xsd:decimal"
+        },
+        "revisionEntropy": {
+          "@id": "wlp:revisionEntropy",
+          "@type": "xsd:decimal"
+        },
+        "pauseEntropy": {
+          "@id": "wlp:pauseEntropy",
+          "@type": "xsd:decimal"
+        },
+        "meetsThreshold": {
+          "@id": "wlp:meetsThreshold",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "forgeryCost": {
+      "@id": "wlp:forgeryCost",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "swf": {
+          "@id": "wlp:costSwf",
+          "@type": "xsd:decimal"
+        },
+        "entropy": {
+          "@id": "wlp:costEntropy",
+          "@type": "xsd:decimal"
+        },
+        "hardware": {
+          "@id": "wlp:costHardware",
+          "@type": "xsd:decimal"
+        },
+        "total": {
+          "@id": "wlp:costTotal",
+          "@type": "xsd:decimal"
+        },
+        "unit": {
+          "@id": "wlp:costUnit",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "forensicSummary": {
+      "@id": "wlp:forensicSummary",
+      "@type": "@id",
+      "@context": {
+        "@protected": true,
+        "flagsTriggered": {
+          "@id": "wlp:flagsTriggered",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "flagsEvaluated": {
+          "@id": "wlp:flagsEvaluated",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "affectedCheckpoints": {
+          "@id": "wlp:affectedCheckpoints",
+          "@type": "xsd:nonNegativeInteger"
+        },
+        "totalCheckpoints": {
+          "@id": "wlp:totalCheckpoints",
+          "@type": "xsd:nonNegativeInteger"
+        }
+      }
+    },
+
+    "baselineConfidence": {
+      "@id": "wlp:baselineConfidence",
+      "@type": "xsd:string",
+      "@context": {
+        "@protected": true,
+        "population-reference": "wlp:confidence-population-reference",
+        "emerging": "wlp:confidence-emerging",
+        "established": "wlp:confidence-established",
+        "mature": "wlp:confidence-mature"
+      }
+    },
+
+    "reportId": {
+      "@id": "wlp:reportId",
+      "@type": "xsd:string"
+    },
+    "schemaVersion": {
+      "@id": "wlp:schemaVersion",
+      "@type": "xsd:string"
+    },
+    "engineVersion": {
+      "@id": "wlp:engineVersion",
+      "@type": "xsd:string"
+    },
+    "algorithmVersion": {
+      "@id": "wlp:algorithmVersion",
+      "@type": "xsd:string"
+    },
+    "protocolVersion": {
+      "@id": "wlp:protocolVersion",
+      "@type": "xsd:string"
+    },
+    "protocolSpec": {
+      "@id": "wlp:protocolSpec",
+      "@type": "xsd:string"
+    },
+    "engineName": {
+      "@id": "wlp:engineName",
+      "@type": "xsd:string"
+    },
+    "likelihoodRatio": {
+      "@id": "wlp:likelihoodRatio",
+      "@type": "xsd:decimal"
+    },
+    "logLikelihoodRatio": {
+      "@id": "wlp:logLikelihoodRatio",
+      "@type": "xsd:decimal"
+    },
+    "enfsiTier": {
+      "@id": "wlp:enfsiTier",
+      "@type": "xsd:string"
+    },
+    "sessionCount": {
+      "@id": "wlp:sessionCount",
+      "@type": "xsd:nonNegativeInteger"
+    },
+
+    "sha256": {
+      "@id": "wlp:sha256",
+      "@type": "xsd:string"
+    },
+    "signingKeyFingerprint": {
+      "@id": "wlp:signingKeyFingerprint",
+      "@type": "xsd:string"
+    },
+    "contentHash": {
+      "@id": "wlp:contentHash",
+      "@type": "xsd:string"
+    },
+    "contentSize": {
+      "@id": "wlp:contentSize",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "vdfIterations": {
+      "@id": "wlp:vdfIterations",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "elapsedMs": {
+      "@id": "wlp:elapsedMs",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "ordinal": {
+      "@id": "wlp:ordinal",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "totalDurationMinutes": {
+      "@id": "wlp:totalDurationMinutes",
+      "@type": "xsd:decimal"
+    },
+    "totalKeystrokes": {
+      "@id": "wlp:totalKeystrokes",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "revisionEvents": {
+      "@id": "wlp:revisionEvents",
+      "@type": "xsd:nonNegativeInteger"
+    },
+
+    "ikiCoefficientOfVariation": {
+      "@id": "wlp:ikiCoefficientOfVariation",
+      "@type": "xsd:decimal"
+    },
+    "bigramConsistency": {
+      "@id": "wlp:bigramConsistency",
+      "@type": "xsd:decimal"
+    },
+    "pasteRatioPercent": {
+      "@id": "wlp:pasteRatioPercent",
+      "@type": "xsd:decimal"
+    },
+    "revisionIntensity": {
+      "@id": "wlp:revisionIntensity",
+      "@type": "xsd:decimal"
+    },
+    "pauseMedianSec": {
+      "@id": "wlp:pauseMedianSec",
+      "@type": "xsd:decimal"
+    },
+    "swfBackdatingHours": {
+      "@id": "wlp:swfBackdatingHours",
+      "@type": "xsd:decimal"
+    },
+    "swfChainVerified": {
+      "@id": "wlp:swfChainVerified",
+      "@type": "xsd:boolean"
+    },
+
+    "dimensionName": {
+      "@id": "wlp:dimensionName",
+      "@type": "xsd:string"
+    },
+    "dimensionScore": {
+      "@id": "wlp:dimensionScore",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "dimensionLR": {
+      "@id": "wlp:dimensionLR",
+      "@type": "xsd:decimal"
+    },
+    "dimensionConfidence": {
+      "@id": "wlp:dimensionConfidence",
+      "@type": "xsd:decimal"
+    },
+    "keyDiscriminator": {
+      "@id": "wlp:keyDiscriminator",
+      "@type": "xsd:string"
+    },
+    "forgeryTier": {
+      "@id": "wlp:forgeryTier",
+      "@type": "xsd:string"
+    },
+    "estimatedForgeTimeSec": {
+      "@id": "wlp:estimatedForgeTimeSec",
+      "@type": "xsd:decimal"
+    },
+    "weakestLink": {
+      "@id": "wlp:weakestLink",
+      "@type": "xsd:string"
+    },
+    "flagCategory": {
+      "@id": "wlp:flagCategory",
+      "@type": "xsd:string"
+    },
+    "flagSignal": {
+      "@id": "wlp:flagSignal",
+      "@type": "xsd:string"
+    },
+    "flagDetail": {
+      "@id": "wlp:flagDetail",
+      "@type": "xsd:string"
+    },
+
+    "attestationResult": {
+      "@id": "wlp:attestationResult",
+      "@type": "@id"
+    },
+    "digestSRI": {
+      "@id": "wlp:digestSRI",
+      "@type": "xsd:string"
+    },
+    "mediaType": {
+      "@id": "wlp:mediaType",
+      "@type": "xsd:string"
+    },
+    "forgeryCostUSD": {
+      "@id": "wlp:forgeryCostUSD",
+      "@type": "xsd:decimal"
+    },
+    "verifier": {
+      "@id": "wlp:verifier",
+      "@type": "@id"
+    },
+    "profileUri": {
+      "@id": "wlp:profileUri",
+      "@type": "@id"
+    },
+
+    "hasCheckpointChain": {
+      "@id": "wlp:hasCheckpointChain",
+      "@type": "@id"
+    },
+    "hasSession": {
+      "@id": "wlp:hasSession",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasCheckpoint": {
+      "@id": "wlp:hasCheckpoint",
+      "@type": "@id",
+      "@container": "@list"
+    },
+    "hasDimension": {
+      "@id": "wlp:hasDimension",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasFlag": {
+      "@id": "wlp:hasFlag",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasProcessEvidence": {
+      "@id": "wlp:hasProcessEvidence",
+      "@type": "@id"
+    },
+    "hasForgeryAssessment": {
+      "@id": "wlp:hasForgeryAssessment",
+      "@type": "@id"
+    },
+
+    "c2paManifestRef": {
+      "@id": "wlp:c2paManifestRef",
+      "@type": "@id"
+    }
+  }
+}

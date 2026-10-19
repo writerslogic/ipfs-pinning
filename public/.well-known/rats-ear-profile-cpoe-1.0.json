@@ -1,0 +1,11 @@
+{
+  "profile": "https://writerslogic.com/.well-known/rats-ear-profile-cpoe-1.0.json",
+  "name": "CPoE Attestation Result (EAR) Profile",
+  "version": "1.0",
+  "description": "IETF RATS Entity Attestation Result (EAR) profile carrying CPoE's proof-of-process appraisal as AR4SI trust vectors. Referenced by CWT/EAT claim key 265 (eat_profile) on EAR tokens; private-use keys 70001-70013 carry CPoE-specific appraisal claims.",
+  "basedOn": "draft-ietf-rats-ear",
+  "wireFormat": "CWT (RFC 8392), COSE_Sign1 (RFC 9052)",
+  "specification": "https://github.com/writerslogic/writersproof",
+  "supersedes": "urn:ietf:params:rats:eat:profile:cpoe:1.0",
+  "notes": "Published under this domain because urn:ietf:params: is IANA-controlled and this profile was never IETF-WG-adopted; a dereferenceable URI needs no registration. This is the appraisal RESULT profile; the evidence-packet profile is https://writerslogic.com/.well-known/cpoe-profile-1.0.json."
+}

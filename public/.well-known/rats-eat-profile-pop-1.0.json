@@ -1,0 +1,11 @@
+{
+  "profile": "https://writerslogic.com/.well-known/rats-eat-profile-pop-1.0.json",
+  "name": "Proof of Process (PoP) EAT Profile",
+  "version": "1.0",
+  "description": "IETF RATS Entity Attestation Token (EAT) profile for CPoE's proof-of-process authorship attestation, as referenced by CWT/EAT claim key 265 (eat_profile) in tokens minted by apps/cpoe_cli.",
+  "basedOn": "draft-condrey-rats-pop (individual submission, expired 2026-08-15, not yet WG-adopted)",
+  "wireFormat": "CWT (RFC 8392), COSE_Sign1 (RFC 9052)",
+  "specification": "https://github.com/writerslogic/writersproof",
+  "supersedes": "urn:ietf:params:rats:eat:profile:pop:1.0",
+  "notes": "Published under this domain because urn:ietf:params: is IANA-controlled and this profile was never IETF-WG-adopted; a dereferenceable URI needs no registration. See also https://writerslogic.com/.well-known/cpoe-profile-1.0.json for the sibling evidence-packet profile."
+}

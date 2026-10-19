@@ -1,0 +1,7 @@
+{
+  "name": "c2pa-html",
+  "controller": "did:web:writerslogic.com",
+  "service": "did:web:writerslogic.com#c2pa-html",
+  "repository": "https://github.com/writerslogic/c2pa-html",
+  "description": "C2PA A.7 HTML embedding (script/link manifest transport)"
+}

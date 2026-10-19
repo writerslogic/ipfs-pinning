@@ -1,0 +1,7 @@
+{
+  "name": "c2pa-unstructured-text",
+  "controller": "did:web:writerslogic.com",
+  "service": "did:web:writerslogic.com#c2pa-unstructured-text",
+  "repository": "https://github.com/writerslogic/c2pa-unstructured-text",
+  "description": "Hard binding for unstructured natural-language text (C2PA A.8)"
+}
