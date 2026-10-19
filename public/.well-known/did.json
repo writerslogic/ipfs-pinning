@@ -5,6 +5,10 @@
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
   "id": "did:web:writerslogic.com",
+  "alsoKnownAs": [
+    "https://github.com/writerslogic",
+    "https://huggingface.co/Writerslogic"
+  ],
   "verificationMethod": [
     {
       "id": "did:web:writerslogic.com#key-1",

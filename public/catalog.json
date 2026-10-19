@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-19T07:56:43.393Z",
+  "generatedAt": "2026-10-19T10:13:33.093Z",
   "publisher": "did:web:writerslogic.com",
   "operator": "https://orcid.org/0009-0003-1849-2963",
   "ark": {
@@ -164,9 +164,9 @@
     {
       "path": "/.well-known/company.json",
       "source": "https://writerslogic.com/.well-known/company.json",
-      "bytes": 4186,
-      "sha256": "919ba0bfadb75ea6be35696adab18acb89345458abcd2028db00c183a7bb455f",
-      "cid": "bafkreiertoql7lnxl2tl4nljnlnldcwlre2fiwflzuqcrwyaygb2po2fl4",
+      "bytes": 4944,
+      "sha256": "88597319d21a3ef373339e5b73f3bdcb96ae22e7dbf0e75882317cf1d5c9e2a9",
+      "cid": "bafkreieilfzrtuq2h3zxgm46lnz7hpols2xcfz636dtvrarrpty5lspcve",
       "contentType": "application/json"
     },
     {
@@ -180,9 +180,9 @@
     {
       "path": "/.well-known/did.json",
       "source": "https://writerslogic.com/.well-known/did.json",
-      "bytes": 5766,
-      "sha256": "2c0ef7a1d192b92a0b1868d4922c13de6be7198a23032a2446ec85446890d874",
-      "cid": "bafkreibmb332dumsxevawgdi2sjcye66nptrtcrdamvcirxmqvcgregyoq",
+      "bytes": 5871,
+      "sha256": "9765df8d8aba8c91373589740d03e2d619fbef35bd224d3d55a77084c559a51c",
+      "cid": "bafkreiexmxpy3cv2rsitonmjoqgqhywwdh566nn5ejgt2vnhoccmkwnfdq",
       "contentType": "application/json"
     },
     {
@@ -284,9 +284,9 @@
     {
       "path": "/executives/dcondrey/did.json",
       "source": "https://writerslogic.com/executives/dcondrey/did.json",
-      "bytes": 1050,
-      "sha256": "32f59f7abb540c07d17f620b69663f987b5e86a68bbce8d1078dfb673a5fbd95",
-      "cid": "bafkreibs6wpxvo2ubqd5c73cbnuwmp4ypnpinjulxtuncb4n7nttux55su",
+      "bytes": 1580,
+      "sha256": "bfc31caa2ebef361d4b79b1338f72341c2b3b124c3940d49337c8eb0e758a01f",
+      "cid": "bafkreif7ymokulv66nq5jn43cm4poi2bykz3cjgdsqgusm34r2yoowfad4",
       "contentType": "application/json"
     },
     {
