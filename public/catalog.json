@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-19T07:46:32.940Z",
+  "generatedAt": "2026-10-19T07:56:43.393Z",
   "publisher": "did:web:writerslogic.com",
   "operator": "https://orcid.org/0009-0003-1849-2963",
   "ark": {
@@ -164,9 +164,9 @@
     {
       "path": "/.well-known/company.json",
       "source": "https://writerslogic.com/.well-known/company.json",
-      "bytes": 3786,
-      "sha256": "dc3fe9f2bc17add6e055e959846324a61f305082d0b8cce97e43f2eb856f5ef5",
-      "cid": "bafkreig4h7u7fpaxvxloavpjlgcggjfgd4yfbawqxdgos7sd6lvyk3266u",
+      "bytes": 4186,
+      "sha256": "919ba0bfadb75ea6be35696adab18acb89345458abcd2028db00c183a7bb455f",
+      "cid": "bafkreiertoql7lnxl2tl4nljnlnldcwlre2fiwflzuqcrwyaygb2po2fl4",
       "contentType": "application/json"
     },
     {
@@ -284,9 +284,9 @@
     {
       "path": "/executives/dcondrey/did.json",
       "source": "https://writerslogic.com/executives/dcondrey/did.json",
-      "bytes": 767,
-      "sha256": "e5f0f14b04fc09120c8689a4a25bcde9fe7bb046e869481db35fec862ff594c6",
-      "cid": "bafkreihf6dyuwbh4bejazbujusrfxtpj7z53arxinfeb3m275sdc75muyy",
+      "bytes": 1050,
+      "sha256": "32f59f7abb540c07d17f620b69663f987b5e86a68bbce8d1078dfb673a5fbd95",
+      "cid": "bafkreibs6wpxvo2ubqd5c73cbnuwmp4ypnpinjulxtuncb4n7nttux55su",
       "contentType": "application/json"
     },
     {

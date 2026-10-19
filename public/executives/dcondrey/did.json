@@ -6,7 +6,13 @@
   "id": "did:web:writerslogic.com:executives:dcondrey",
   "controller": "did:web:writerslogic.com",
   "alsoKnownAs": [
-    "https://orcid.org/0009-0003-1849-2963"
+    "https://orcid.org/0009-0003-1849-2963",
+    "https://arxiv.org/a/condrey_d_1.html",
+    "https://github.com/dcondrey",
+    "https://www.linkedin.com/in/davidcondrey",
+    "https://stackoverflow.com/users/1922144/david-condrey",
+    "https://www.medium.com/@davidcondrey",
+    "https://www.quora.com/profile/David-Condrey"
   ],
   "verificationMethod": [
     {
