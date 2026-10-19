@@ -10,7 +10,7 @@
     "test": "tsx --test tests/*.test.ts",
     "snapshot": "node scripts/snapshot.mjs",
     "deploy": "wrangler deploy",
-    "types": "wrangler types --strict-vars=false"
+    "types": "wrangler types --strict-vars=false --include-runtime=false"
   },
   "dependencies": { "multiformats": "14.0.5" },
   "devDependencies": {
